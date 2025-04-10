@@ -1,0 +1,21 @@
+Suppose we have 1000's line of code and in tht 1000 line of code which takes 10 sec to run and also there is a setTimeout that has a timer of 2 sec. So the in call stack global execution stack will be present until the whole code is executed. But the timer of setTimeout is over and it is pushed to callback queue but the main thread/call stack is not empty so the setTimeout function will be pushed to call stack once the main thread/call stack is empty and it will take 10 seconds to complete. But the setTimeout will wait till the call stack is empty even if the timer of setTimeout is over and until the 1000's of line of code is being executed and callback function is in callback queue the call stack will be monitered by event loop so that it can push callback function in call stack
+
+                                          or 
+
+If we have thousands of lines of code that take 10 seconds to execute, and within that code, there is a setTimeout with a 2-second timer, here's what happens:
+
+The global execution context (call stack) will be busy executing the code for the full 10 seconds. Although the setTimeout has a 2-second timer, the callback function associated with it will not be executed immediately after 2 seconds. Instead, once the 2-second timer expires, the callback function is placed in the callback queue.
+
+However, because the call stack is still processing the synchronous code, the event loop, which constantly monitors the call stack, will wait until the stack is empty before pushing the setTimeout callback onto the call stack. This means the setTimeout callback will only be executed after the entire 10 seconds of synchronous code execution is complete. The event loop ensures that the callback function is eventually executed, but only after all other synchronous code has finished running.
+
+when we do setTimeout(()=>{},0) of 0 millisecond then also the same things happen that happens with any other callback function
+ex.{
+    console.log("start");
+    setTimeout(function(){
+        console.log("callback");
+    },0);
+    console.log("end");
+    this how logs will be printed => start, end, callback
+}
+
+concurrency model in javascript

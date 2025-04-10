@@ -1,0 +1,29 @@
+Function Statement/Function Declaration => function a(){ console.log("a called") }
+
+Function Expression => var b = function b(){ console.log("b called") }
+
+Major difference between expression and statement is hoisting as when both of these are called before their intialization line. Like a(), b() after this function code is present funct a(), function b() but b will throw error as it is a varibale and a function will run as expected. As variable b is still undefined
+
+Anonymous Function => Functions without a name is anonymous function, if we use them normally then they will throw syntax error ex. function(){} => throws error. Therefore these functions are used as values ex. var x = function(){}
+
+Named Function Expression => giving name to a anonymous function var x = function xys(){} on invocation of this function if we do x() then it works fine but when we do xyz() then it throws refrence error:not defined error, but the xyz function will be accessible only in the function scope ex: var z = function xyz(){console.log(xyz)} => it logs the function code
+
+Difference between Arguments and Parameter =>
+ function x(param){   param => parameter
+    console.log(param)
+ }
+ x(10) => 10 : argument
+
+First Class Functions => The ability of functions to use as values, can be passed as an argument to another function and also can be returned from the function this is ability is known as first class function
+{
+ ex. function z(param1){
+      console.log(param1)
+      return function(){} => it can be named or anonymous
+     }
+     function xyz(){}
+     z(xyz)
+}
+
+Functions are first class citizens/ First Class Functions
+
+Function are heart of JS. They are called first class citizens or first class functions because they have the ability to be stored in the variables, passed as parameters and arguments. They can also be returned in the function.

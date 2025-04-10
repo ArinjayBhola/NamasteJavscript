@@ -1,0 +1,15 @@
+In js everything happens inside execution context
+In javascript execution context is created intially
+
+ |---------------------------|
+ |  Memory    |    Code    --|->code executes one line at a time
+ | (Variable  | (Thred of    |              
+ | enviroment)| execution)   |
+ |------------|--------------|
+ |  key:value |              |
+ |            |              |
+ |  a:10      |              |
+ |            |              |
+ |  fn:{...}  |              |
+
+ javascript is synchronous single threaded language

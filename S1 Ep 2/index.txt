@@ -1,0 +1,24 @@
+var n = 2;
+function square(n) {
+  var ans = n * n;
+  return ans;
+}
+var square2 = square(n);
+var square4 = square(4);
+
+First a global execution context is created after that a 2 phase operation occurs (i)memory creation and (ii)code execution line by line
+
+In memory allocation n(from code in top) is given as undefined and for a function a whole function code is copied in memory and after that in code phase a new execution context is created when function is called and also in code phase the the values are given to the variable
+
+In this code, intially a global execution context is created but as soon as we reach var square2 = square() a new execution context is created
+
+`return` keyword states that return the value of the program to the place where the function was invoked
+after returning the value whole execution context gets deleted
+
+And in last whole execution context gets deleted
+
+To manage execution context on deletion and creation becomes difficult for js engine so to solve this js uses call stack
+
+when global execution context is created it is pushed in call stack after that a new execution context is pushed to call stack after that new execution context is pushed to call stack only when the previous execution context is deleted from call stack and as the execution context gets poped from call stack the control reaches global execution context and in last the global execution stack is also poped out from call stack
+
+call stack is also called execution context stack, program stack, control stack, runtime stack, machine stack

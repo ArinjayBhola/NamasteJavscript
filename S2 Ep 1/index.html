@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const cart = ["shoes", "kurta", "jeans"];
+      const api = {
+        createOrder: function (item) {
+          console.log(item);
+        },
+      };
+
+      api.createOrder(cart, function () {
+        api.proceedToPayment(function () {
+          api.showOrderSummary(function () {
+            api.updateWallet();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

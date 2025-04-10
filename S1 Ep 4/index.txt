@@ -1,0 +1,5 @@
+function a() {
+   var x = 10;
+   // console.log will look for value of x in local memory space(its own execution context)
+   console.log(x);
+}

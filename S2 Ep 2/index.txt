@@ -1,0 +1,28 @@
+Promise is an object representing the eventual completion or failure of an asynchronous operation
+
+promises are used to perform async operations in javscript
+
+We can assume promise as an empty object with some key value
+
+const promise = createOrder();
+in this first object is returned  with undefined value but after the fetch is done after it time then the undefined is populated with data
+
+every async action returns a promise
+
+passing a callback function to another function
+ex => createOrder(function(){
+    proceedToPayment();
+})
+
+attaching a callback function to a promise object
+ex => const promise = createOrder();
+      promise.then(function(){
+        proceedToPayment()
+      })  
+
+
+const GITHUB_API = "https://api.github.com/users/akshaymarch7";
+
+      const user = fetch(GITHUB_API);
+      console.log(user);
+In this when we log we see Promise{<pending>} but when we expand and then we see promise state as fulfilled because it shows current state but this is seen Promise{<pending>} because this was the state when we log and also we see promise result

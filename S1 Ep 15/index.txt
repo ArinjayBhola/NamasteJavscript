@@ -1,0 +1,43 @@
+Call stack does not have a timer that means if some part of code comes in call stack it do not waits it executes 
+
+Browser has javascipt engine and that engine has call stack
+
+Browser has a lot of features like local storage, timer, geolocation. Now to access these features of browser we need some web api's like fetch(), DOM APIs, setTimeout(), localStorage, console, location
+
+fetch(), DOM APIs, setTimeout(), localStorage, console, location => These all are not part of javascipt these are part of browser. Browser gives us access to use this in js engine using fetch(), DOM APIs, setTimeout(), localStorage, console, location
+
+And these all functions are available in global object that is window
+
+All callback functions gets registers in web api enviornment
+
+When we use setTimeout function we gets access to browser timer and timer starts and callback function gets registered
+As soon as timer expires the callback function cannot go to call stack directly so it goes to call stack through the callback queue
+After timer expires callback function goes to callback queue and then there is new term that is "Event Loop" 
+Event Loop checks callback queue and puts the function in call stack. It checks callback queue for any callback function and puts it in call stack. New execution context is created for the callback function
+
+AddEventListner is given by the browser to the javascipt engine through the window object in form of web api which is DOM api
+In AddEventListner the callback functions gets registered and an event is attached to it
+ex. If event is click. When user clicks on button the the callback functions is pushed to callback queue and it waits over there for its turn 
+
+Event Loop: It only monitors call stack and callback queue. If call stack is empty and there is a function in callback queue it pushes that function in call stack and it gets executes and also the function gets removed from callback queue
+event loop is important because it pushes every callback function one by one to call stack
+
+The callback functions gets registered in web api enviornment and it is present in enviornment until callback is called or the window or browser is closed
+
+There is another queue like callback queue that is Microtask Queue
+Microtask Queue has much more priority than callback queue that means function in microtask queue will be pushed to call stack first than callback queue
+
+fetch() => the callback functions from fetch after making network call goes to microtask queue
+
+suppose we have 1000's line of code and in between we have fetch() and setTimeout() functions also and the time of setTimeout() function is over and it is in callback queue and fetch() has also completed it network call and is also waiting in microtask queue but these callback functions in different queue will only be pushed to call stack once the all 1000's line of code is finished that means once the global execution context is poped out of call stack. And event loop monitors the call stack and both of these queue and it pushes the function in call stack. And after call stack is empty then event loop pushes the function of microtask queue in call stack because they have much more priority than callback queue and this is all done by browser
+
+What can come in microtask queue? => all the callback function that come from promises are pushed in microtask queue
+What can come in callback queue? => all the callback function that come from setTimeout and event listners are pushed in microtask queue
+
+Callback queue is also called task queue
+
+if there are 3 functions in microtask queue and 1 in callback queue then also event loops pushes 3 functions from microtask queue to call stack after that callback queue function are pushed
+
+Starvation of function in callback queue => when task in call queue do not gets a chance as there are lot of task in microtask queue
+
+Mutation Observer =>

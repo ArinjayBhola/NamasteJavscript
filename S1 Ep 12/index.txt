@@ -1,0 +1,81 @@
+We can use ()() to call a function that is inside a function
+ex:{
+    function x(){
+        function y(){}
+        return y;
+    }
+    x()();
+    using double ()() the inner function get invoked
+    x()() or var a=x();  a();
+}
+
+Inner function always form a closures irrespective of different type of declaration like let, const, var
+
+Example of closures
+1. function currying
+2. module patern
+3. in higer order function
+4. helps in data hiding and encapsulation
+data hiding/data privacy: if we have variable ans we want to hide the the variable so that other function cannot access the variable
+ex.{
+    var counter = 0;
+    function incrementCount(){
+        counter++;
+    }
+    any function in code can access the counter variable
+    to achive data hiding we can use closures
+    function clo(){
+        var counter = 0;
+        return function incrementCount(){
+            counter++;
+            console.log(counter)
+        }
+    }
+    console.log(counter) => throws error
+    var counter1 = clo();
+    counter1(); => 1
+    counter1(); => 2
+
+    // If we call the clo() function onse again it will not get affected from the previous invocation as it will start the counting again from 0. It makes a seprate counter all together
+    var counter2 = clo();
+    counter2();
+    now counter cannot be accessed out of this function
+}
+
+// Constructor function
+ex.{
+    function clo(){
+        var counter = 0;
+        this.incrementCount =  function(){
+            counter++;
+            console.log(counter);
+        }
+        this.decrementCount =  function(){
+            counter--;
+            console.log(counter);
+        }
+    }
+}
+
+// Distadvantages of closures
+1. Overconsumption of memory, variables that are not being used are not garabage collected
+2. Not handled properly it can lead to memory leaks, and it can also freeze the browser
+
+// Garabage Collector
+It frees up the variables that are not being used, it takes out of memory
+
+// Relation between garabage collecters, closures, memory leaks
+
+After function execution is complete then the garabage collector removes all the variables from the memory and frees it up but when the closure is formed it does not do that
+ex.{
+    function a(){
+        var x = 0;
+        var z = 10;
+        return function b(){
+            console.log(x)
+        }
+    }
+    var y = a();
+    y has a copy of b function and in b function x has a reference to x variable. As it forms the closure so garabage collecter do not frees the memory as we can access it.
+    But some modern js engines has good garabage collecter mechanism that founds the variables that are not being used in closure and frees the memory like z variable
+}

@@ -1,0 +1,40 @@
+Promise API's
+Promise api's returns the promise
+
+settled can be a failure as well as success
+Once promise is settled
+It can either be resolve/success/fulfilled, reject/failure/rejected => see image
+
+1. Promise.all()
+    => It takes array of promises
+    => It takes array of promise and resolves it parallely and return an array of all 3 promise
+    => It waits for all of them to finish, and collects result and return solution
+    => The highest time taken by a any single promise will be the time for promise.all() to return the solution
+    => If any one promise fails then promise.all() will be failure and the error message will be thr error message of the promise that have failed
+    => If failed promise takes less time than other promises then promise.all() throws error as soon any promise gets rejected. It do not waits for other promises
+    => If two promises fails then only that promise error will be displayed which promise failed first
+    => It is also known as "Fail Fast"
+
+2. Promise.allSettled()
+    => It takes array of promises
+    => It do not throws error if any promise fails.
+    => It returns the array of objects of result with detail of promise result like fulfilled, reject
+    => It waits until the all promises gets settled
+
+3. Promise.race()
+    => It takes array of promises
+    => It gives the value of first settled promise
+    => If the first settled promise gets failed then the error will be thrown of the first settled promise
+    => It gives the first result irrespective if it is resolved or rejected
+
+4. Promise.any()
+    => It takes array of promises
+    => Wait for first settled success
+    => The first promise to get resolved is returned
+    => Wait for first success
+    => It ignores the promise that have been failed before the first resolved promise
+    => If all promises fails then it throws error "AggregateError: All promises were rejected"
+    => AggregateError will be array of all the failed promise
+    => It waits for first success
+    => Seaking for first success
+    => If all fails then it throws "AggregateError"

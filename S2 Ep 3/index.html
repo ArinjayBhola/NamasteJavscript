@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const cart = ["eqw", "pok", "gdf"];
+      createOrder(cart)
+        .then(function (orderId) {
+          console.log(orderId);
+        })
+        .catch(function (err) {
+          console.log(err.message);
+        });
+
+      function createOrder(cart) {
+        const pr = new Promise(function (resolve, reject) {
+          if (!validateCart(cart)) {
+            const err = new Error("Error in creating order");
+            reject(err);
+          }
+          const orderId = Math.floor(Math.random() * 10);
+          if (orderId) {
+            setTimeout(() => {
+              resolve(orderId);
+            }, 5000);
+          }
+        });
+        return pr;
+      }
+
+      function validateCart(item) {
+        return false;
+      }
+    </script>
+  </body>
+</html>

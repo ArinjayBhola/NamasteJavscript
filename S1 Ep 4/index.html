@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 1;
+      // console.log will look for value of x in local memory space(its own execution context)
+      console.log(x);
+      a();
+      b();
+      function a() {
+        var x = 10;
+        // console.log will look for value of x in local memory space(its own execution context)
+        console.log(x);
+      }
+      function b() {
+        // console.log will look for value of x in local memory space(its own execution context)
+        var x = 100;
+        console.log(x);
+      }
+    </script>
+  </body>
+</html>

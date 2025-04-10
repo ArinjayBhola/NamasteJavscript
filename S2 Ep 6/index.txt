@@ -1,0 +1,33 @@
+Global object is different in browser different in nodejs and different in any other javascript enviornment
+
+In case of browser => "this" keyword in global space always points towards window object
+in node it is global not window
+
+"this" keyword works differently in strict mode and in non-strict mode
+
+If "this" keyword is in function then value of "this" keyword depends on strict or non-strict mode
+
+Value of "this" keyword in function is undefined but because the function is in non-strict mode then it will be replaced with globalObject
+
+"this" substitution => If the value of "this" keyword is undefined or null then "this" keyword will be replaced with globalObject only in strict mode
+
+value of "this" keyword depends on how function is called
+
+in strict mode call the function like this window.function() then value of "this" keyword will not be undefined it will be globalObject
+
+If the function is called without any refrence to any object then it is undefined in strict mode.
+
+But in non strict mode the value becomes globalObject
+
+Function vs Method => function as a part of object is called a method
+
+Value of "this" keyword in method is a object
+
+call, apply, bind methods => for sharing method
+
+arrow function dont have their "this" binding
+so the arrow function will point at the "this" of its enclosing lexical context
+
+"this" inside DOM elements is refrence to HTML elements
+
+"this" keyword behaves differently in class, constructor

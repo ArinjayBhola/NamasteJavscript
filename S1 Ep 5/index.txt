@@ -1,0 +1,19 @@
+shortest program in javascript is empty file as js engine still creates a lot of things
+
+Global space: Anything that is not in any function is global space
+"window" is a global object that is created along with global execution context
+
+ex: var x = 31;
+    function a(){
+        var z = 12;
+    }
+x variable, a() function is in global space, but z variable is not in gloabl space
+these functions and variables gets attached to global(window) object, z will not be there
+
+In global level "this" keyword points towards "window" object
+
+Whenever any js program runs a global execution context is created, "window" object is created along with "this" keyword is created
+
+Even if file is empty the "window" object will be created
+
+in global level: this === window

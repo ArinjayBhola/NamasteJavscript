@@ -1,0 +1,19 @@
+Hoisting in javascipt is phenomenon in which we get the value even before we have initialize it
+
+undefined v/s not defined
+undefined: A variable that has been declared but has not been assigned a value is undefined
+not defined: A variable that has not been declared at all is not defined
+
+Three ways to declare a function:
+1. arrow function: var x = ()=>{}
+2. function a(){}
+3. var a = function (){}
+
+Arrow function behaves like a variable(in memory allocation phase of execution context the arrow function will be allocated a undefined)
+
+For third type of function it also behave like a variable means it will be stored as a undefined
+
+For 2nd type of function only then it is saved as whole function code in memory during execution context phase
+
+Variable declarations are scanned and are made undefined
+Function declarations are scanned and are made available

@@ -1,0 +1,7 @@
+Callback function => Callback function give us whole async experince in single threaded, synchronous language
+
+Blocking the Main Thread => Main thread in jaavscript is call stack. If some function blocks the call stack then it is called blocking the main thread. Block main thread one function takes a lot of time and due to this other functions are not being invoked
+
+Event listners are heavy as it takes lot of memory so it is good practice to remove them when they are not in work
+
+Garbage Collector and remove event listners =>

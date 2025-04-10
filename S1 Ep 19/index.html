@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Reduce is used get a single value from an array
+      const users = [
+        { firstName: "abc", lastName: "def", age: 20 },
+        { firstName: "ijk", lastName: "lmn", age: 24 },
+        { firstName: "opq", lastName: "rst", age: 29 },
+        { firstName: "uvw", lastName: "xyz", age: 21 },
+      ];
+      const output = users.reduce((acc, curr) => {
+        if (acc[curr.age]) {
+          acc[curr.age] = ++acc[curr.age];
+        } else {
+          acc[curr.age] = 1;
+        }
+        return acc;
+      }, {});
+      console.log(output);
+    </script>
+  </body>
+</html>

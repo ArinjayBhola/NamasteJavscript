@@ -1,0 +1,50 @@
+Async function always returns a promise
+Also if we are returning our own value then also it will wrap that value in promise then return it
+If we are not retuning anything then it will return its own promise
+If i return value as promise then the function will not wrap it again with promise it will return it as it is
+
+Async/Await combo is used to handle promise
+
+Await is a keyword that can only be used inside async function
+
+In async/await js engine waits for promise to gets resolved after that it executes next line irrespective of time taken by promise
+
+ex:{
+    const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Promise value resolved");
+        }, 10000);
+
+        function getData() {
+            p.then((res) => console.log(res));
+            console.log("object");
+        }
+        In this the object will be printed first and then promise resolved will be printed
+
+        async function handlePromise() {
+            console.log("hello world");
+            const val = await p;
+            console.log("object");
+            console.log(val);
+
+            console.log("hello world 2");
+            const val2 = await p;
+            console.log("object2");
+            console.log(val);
+        }
+        But in this after the promise gets resolved then code will be executed for next line so first promise then object will be printed
+        but hello world will be printed first 
+
+        For the second promise to resolve => 
+    });
+}
+
+Async/Await waits at the point of time. The program will wait
+
+When the async function is called the function gets pushed to call stack and as soon as the js engine seens await in the function the function gets suspended until the promise in the function gets resolved after that it will execute the code of next line of function. After some time or promise gets resolved the function again comes in call stack and will start executing where it left. If there is another promise then it will again suspend the function once the promise gets resolved then the function will again come to call stack and execute where it left.It happens so that the main thread do not gets blocked
+
+Actually call stack is not only that suspends the function => The function suspends itself when it encounters an await, but this behavior is coordinated by the JavaScript engine (including the call stack and event loop).
+
+If there is another promise in same function then it will also starts resolving as soon as function gets invoked. When js engine reaches that line it sees that if the promise is resolved then it prints it.
+
+Async/Await is syntactical sugar over .then().catch()

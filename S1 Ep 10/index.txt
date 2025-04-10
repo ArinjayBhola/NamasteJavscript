@@ -1,0 +1,26 @@
+function along with its lexical scope forms a closure
+when function is returned from other function they still maintains there lexical scope
+ex:{
+    function x(){
+        var a = 2;
+      {
+        {
+            function y(){
+              console.log(a)
+            }
+        return y;                 => closure was returned, function along with its lexical scope
+        }
+         or
+        {
+            return function y(){  => closure was returned, function along with its lexical scope
+              console.log(a)
+            }
+        }
+      }
+    }
+    var z = x();       => y function get stored in z
+    console.log(z);    => it logs whole y functions 
+    z()                => logs 2
+    y function rembers its lexical scope
+}
+ 

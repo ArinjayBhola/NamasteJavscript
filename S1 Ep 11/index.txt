@@ -1,0 +1,11 @@
+In setTimeout the callback function forms a closure
+ex:
+{
+    function x() {
+        var i = 89;
+        setTimeout(function () {
+          console.log(i);
+        }, 1000);
+    }
+    function forms a closure and remebers refrence of variable i
+}

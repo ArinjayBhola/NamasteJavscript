@@ -1,0 +1,47 @@
+let and const declarations are hoisted
+These are in temporal dead zone for time being
+let and const are also given memory but they are not present in global memory space, they are present in separate memory space
+We cannot access this memory space until and unless we have put in some value in it
+Temporal dead zone: It is a time since when the let variable was hoisted and it was intialized(gets some value)
+Refrence Error: Whenever we try to access a variable that is in temporal dead zone it gives refrence error
+In window object the let variables are not attached, they are maintained in separate storage
+let does not allow to redeclaration of same variable, it gives syntax error
+Same with this example:{
+    let a=10;
+    var a=100;
+}, throws syntax error that a has been already declared, let do not allow for duplications of variable
+But var allows redeclaration of variable
+const behaves same as let in hoisting, but const is more strict
+let allows to declare a variable at anytime and declare it at any time
+ex:{
+    let a;
+    a = 100;
+    console.log(a)
+}
+const and let are same, const is little more strict in variable declaration
+But in case of const it does not allow and throws syntax error(Missing intializer in const declaration)
+ex:{
+    const a;
+    a = 100;
+    console.log(a)
+    throws error => syntax error:Missing intializer in const declaration
+
+    correct way
+    const a = 100;
+    console.log(a)
+}
+If in const we want to change the same variable data then also const throws error
+ex:{
+    const a = 100;
+    a = 1000;
+    console.log(a)
+    throws error => type error:Assignment to constant variable
+}
+
+syntax error / type error / refrence error
+
+1. syntax error: using wrong syntax
+2. type error: assigning something to a constant variable, it should be intialized and declared together
+3. refrence error: when a js tries to find a variable in memory space but we cannot access it
+
+We can shrink temporal dead zone window by declaring the variable on top in its scope

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise API's</title>
+  </head>
+  <body>
+    <script>
+      // Promise API's
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(42);
+        }, 3000);
+      });
+      const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(43);
+        }, 1000);
+      });
+      const promise3 = 44;
+
+      // promise.all()
+      Promise.all([promise1, promise2, promise3]).then((value) => {
+        console.log(value);
+      });
+
+      // promise.allSettled()
+      Promise.allSettled([promise1, promise2, promise3]).then((value) => {
+        console.log(value);
+      });
+
+      // promise.race()
+      Promise.race([promise1, promise2, promise3]).then((value) => {
+        console.log(value);
+      });
+
+      // promise.any()
+      Promise.any([promise1, promise2]).then((value) => {
+        console.log(value);
+      });
+    </script>
+  </body>
+</html>

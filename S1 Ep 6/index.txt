@@ -1,0 +1,13 @@
+Javascript is loosely typed language/weekly typed language
+
+undefined v/s not defined
+
+undefined:
+ It is a special keyword it has its own memory, it is assigned to a variable until the any explicit value has been assigned to it
+ Memory has been allocated to the variable
+ A variable has been declared but not assigned a meaningful value yet.
+
+
+not defined:
+ Memory has not been allocated to the variable
+ A variable that has not been declared at all is not defined

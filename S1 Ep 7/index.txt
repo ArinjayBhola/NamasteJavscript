@@ -1,0 +1,8 @@
+Scope: Were we can access a variable or a function in a code
+scope of variable/function: where can i access it
+scope is directly dependent on lexical enviornment
+Lexical Enviornment: Whenever a execution context is created a lexical enviornment is also created. Lexical Enviornment is local memory along with lexical enviornment of its parent
+Lexical: In hierarchy/ in sequence
+The way of finding is known as scope chain: Chain of all lexical enviornment and its parent refrence
+In memory phase of execution context there is also refrence to its lexical parent
+In global level lexical enviornment points to null because it has no parent

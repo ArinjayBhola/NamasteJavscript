@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      Higher Order Function => A function that takes other function as an
+      argument or returns a function from it
+    </h1>
+    <script>
+      const radius = [2, 4, 6, 8];
+      const diameter = function (radius) {
+        return 2 * radius;
+      };
+      const area = function (radius) {
+        return Math.PI * radius * radius;
+      };
+      const circumference = function (radius) {
+        return Math.PI * radius * 2;
+      };
+
+      /*
+      Array.prototype.calculate = const calculate
+      when we use Array.prototype the function is available in every array
+      the syntax to use it becomes similar as map() function
+      */
+      Array.prototype.calculate = function (radius, logic) {
+        let output = [];
+        for (let i = 0; i < radius.length; i++) {
+          output.push(logic(radius[i]));
+        }
+        return output;
+      };
+      console.log(calculate(radius, diameter));
+      console.log(calculate(radius, area));
+      console.log(calculate(radius, circumference));
+    </script>
+  </body>
+</html>
