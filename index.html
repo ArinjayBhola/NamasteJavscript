@@ -1,56 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Hello World</h1>
-    <script>
-        // Closure example
-        {
-            function topest() {
-                var p = 1;
-                function outer(b) {
-                    // b is also part of outer function so it will also form a closure
-                    function inner() {
-                        console.log(y, b, p);
-                    }
-                    // if y=78 is not present then it will search in its parent scope(clousure) and parent will check in its own parent scope and if not present then in global scope and it will print the value that is in global scope if not present in global scope also then it will throw reference error:not defined
-                    let y = 78;
-                    return inner;
-                }
-                return outer;
-            }
-            let y = 8;
-            console.log("y :" + y);
-            var x = topest()("hello");
-            x();
-        }
-
-        // Constructor function of closure
-        {
-            function Clo() {
-                var counter = 0;
-                this.incrementCount = function () {
-                    counter++;
-                    console.log(counter);
-                };
-                this.decrementCount = function () {
-                    counter--;
-                    console.log(counter);
-                };
-            }
-            var close1 = new Clo();
-            close1.incrementCount();
-            close1.incrementCount();
-            close1.incrementCount();
-            close1.decrementCount();
-        }
-    </script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namaste JavaScript Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
